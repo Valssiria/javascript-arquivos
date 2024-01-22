@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos-js</title>
+</head>
+
+<body>
+
+    <h1> javascript </h1>
+
+    <input id="meu-input" placeholder="Digite aqui">
+
+    <select>
+        <option>HTML</option>
+        <option>CSS</option>
+        <option>REACT</option>
+        <option>NODE</option>
+    </select>
+
+
+
+    <button class="meu-button">Clique aqui</button>
+
+</body>
+
+<style>
+    h1 {
+        color: blue;
+    }
+
+    button {
+        background: #9de600;
+        height: 20px
+    }
+
+    /* p {
+        visibility: visible;
+        /* por padrão ela vem visible */
+        /* hidden esconder o elemento
+    } */
+
+</style>
+
+
+<script>
+    /* EVENTOS de addEventListener */
+
+    const input = document.querySelector("#meu-input")
+
+    const select = document.querySelector("select")
+
+    const button = document.querySelector(".meu-button")
+
+    select.addEventListener("change", function () {
+         console.log("troquei de valor")
+    })
+    /* function () essa é uma function anonima que não tem nome*/
+
+    /*outra forma de fazer um evento*/
+
+   function troquiValor(abacate){
+        console.log(abacate)
+        /*assim posso pegar varias informações do js, 
+        ele fornece muitas, por padrão colocar (event) */
+    }
+
+    /*select.addEventListener("change", troquiValor)*/
+
+    input.addEventListener("keypress", troquiValor)
+
+    //button.addEventListener("click", troquiValor)
+
+    button.addEventListener("click", function (event) {
+         console.log(event)
+     })
+
+    
+
+
+</script>
+
+</html>
