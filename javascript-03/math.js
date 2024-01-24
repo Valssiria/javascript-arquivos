@@ -45,20 +45,27 @@
 const pVisibilit = document.querySelector(".result")
 function generateNumber() {
 
-  
+
     const valorMin = Math.ceil(document.querySelector(".min").value)//cima/teto
     // document.querySelector(".min").value
     // Math.ceil(document.querySelector(".min").value)//cima/teto
     const valorMax = Math.floor(document.querySelector(".max").value)//chão
     //document.querySelector(".max").value
     //Math.floor(document.querySelector(".max").value)//chão
+                /* posso fazer assim (<=) ou (>) */
+    if (valorMin >= valorMax) {
 
-   // console.log(valorMax, valorMin)
-   const twoNumber = Math.floor(Math.random() * (valorMax - valorMin + 1) + valorMin)
+        alert("O valor mínimo  tem que ser MENOR que o valor máximo")
+    } else {
+        const twoNumber = Math.floor(Math.random() * (valorMax - valorMin + 1) + valorMin)
 
-   pVisibilit.innerHTML = twoNumber
-   pVisibilit.style.opacity = 1
-  
+        pVisibilit.innerHTML = twoNumber
+        pVisibilit.style.opacity = 1
+
+    }
+
+    // console.log(valorMax, valorMin)
+
 }
 
 
