@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <title>Sorteador.DevClub</title>
+</head>
+
+<body>
+    
+    <main>
+
+        <header>
+            <h1> Sorteador.DevClub </h1>
+            <p class="hora">Hora de saber qual é o número sorteador</p>
+        </header>
+
+        <img class="logo"
+            src="https://1.bp.blogspot.com/-3FBvnJbiVSk/V9flHM9ujuI/AAAAAAAAFyU/GuaKX-poIGMH2LGvFDpmCllYzRjZ5rWdQCLcB/s1600/sorteo-1.jpg"
+            alt="foto do sorteio">
+
+        <div class="sessao">
+
+            <h2> Escolha os vaolres mínimo e máximo para fazer o sorteio</h2>
+
+            <label for="#">
+                Valor Mínimo:
+                <input class="min" type="number">
+            </label>
+
+            <label for="#">
+                Valor Máximo:
+                <input class="max" type="number">
+            </label>
+
+            <button onclick="generateNumber()">SORTEAR</button>
+
+            <h4>Resultado:</h4>
+            <P class="result"></P>
+
+        </div>
+    </main>
+
+
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Playfair Display', serif;
+        }
+
+        body {
+            width: 100%;
+        }
+
+
+        header {
+            width: 100%;
+            color: rgb(198, 14, 192);
+            background: #e07315;
+            padding: 5px;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+
+
+        h1 {
+            font-weight: 700;
+            font-size: 45px;
+
+            /* animation: blink 1s steps(1, end) infinite;  */
+        }
+
+        .hora {
+            font-size: 18px;
+            font-weight: 600;
+
+        }
+
+        .logo {
+            width: 250px;
+            transition: 1s;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            /* animation: blink 1s infinite; */
+            margin-left: 20px;
+            animation: loading 5s linear infinite;
+            border-radius: 100px;
+            cursor: pointer;
+
+            display: block;
+            margin: auto;
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+
+        /* .logo:hover {
+        /* width: 275px; */
+        /* margin-left: 50px; 
+       
+    } */
+
+        /* @keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+} */
+
+        @keyframes loading {
+            50% {
+                transform: rotate(-180deg)
+            }
+
+            50% {
+                transform: rotate(-360deg)
+            }
+        }
+
+
+        h2 {
+            color: rgb(216, 63, 173);
+            font-size: 25px;
+            text-align: center;
+            /* margin-left: 5px; */
+            margin-bottom: 10px;
+        }
+
+        main {
+            width: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .sessao {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-left: 20px;
+            margin-right: 20px
+        }
+
+        label,
+        h4 {
+            color: #d1890c;
+            font-size: 20px;
+        }
+
+        input {
+            width: 100%;
+            height: 48px;
+            border-radius: 4px;
+            border: 1px solid #BBB;
+            background: #FFF;
+            box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.15);
+            color: #555;
+            font-size: 20px;
+            font-weight: 700;
+            padding-left: 18px;
+            cursor: pointer;
+            margin-bottom: 24px;
+        }
+
+        button {
+            width: 100%;
+            height: 48px;
+            border-radius: 5px;
+            background: rgb(198, 14, 192);
+            color: #FFF;
+            font-size: 18px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+
+        }
+
+        button:hover {
+            opacity: 0.8;
+            background: linear-gradient(100deg, #ff4900, #d417c7);
+        }
+
+        butoon:active {
+            opacity: 0.4;
+
+        }
+
+        .result {
+            opacity: 0;
+            width: 150px;
+            height: 150px;
+            border-radius: 100px;
+            background: linear-gradient(100deg, #ff4900, #d417c7);
+            text-align: center;
+            font-size: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: auto;
+        }
+
+        @media screen and (max-width:600px) {
+
+            body {
+                width: 100%;
+
+            }
+
+            header {
+                min-width: 90%;
+                color: rgb(3, 45, 55);
+                background: #51aee0;
+                padding: 5px;
+                margin-top: 20px;
+                text-align: center;
+                border-radius: 20px;
+                margin-bottom: 40px;
+
+            }
+
+
+
+            h1 {
+                font-weight: 700;
+                font-size: 25px;
+                animation: blink 1s infinite;
+            }
+
+            @keyframes blink {
+                0% {
+                    opacity: 0;
+                }
+
+                50% {
+                    opacity: 0;
+                }
+
+                100% {
+                    opacity: 1;
+                }
+            }
+
+            .hora {
+                font-size: 15px;
+                font-weight: 400;
+
+            }
+
+            .logo {
+                width: 150px;
+                display: none;
+            }
+
+
+
+
+            h2 {
+                color: rgb(5, 65, 87);
+                font-size: 20px;
+                text-align: center;
+                /* margin-left: 5px; */
+                margin-bottom: 10px;
+                font-weight: 400;
+            }
+
+            label,h4 {
+                color: #092ee6;
+                font-size: 20px;
+                font-weight: 700;
+            }
+
+            input {
+            width: 100%;
+            height: 48px;
+            border-radius: 10px;
+            border: 1px solid #BBB;
+            background: #FFF;
+            box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.15);
+            color: #020225;
+            font-size: 25px;
+            font-weight: 700;
+            padding-left: 18px;
+            cursor: pointer;
+            margin-bottom: 24px;
+        }
+
+            button {
+            width: 100%;
+            height: 48px;
+            border-radius: 10px;
+            background: rgb(3, 70, 85);
+            color: #FFF;
+            font-size: 20px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+
+        }
+
+        button:hover {
+            opacity: .8;
+            color: #120570;
+            background: linear-gradient(100deg, #3f9aac, #100344);
+        }
+
+        .result {
+            opacity: 0;
+            width: 150px;
+            height: 150px;
+            border-radius: 100px;
+            background: linear-gradient(100deg, #3f9aac, #100344);
+            text-align: center;
+            font-size: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+            color: #ff4900;
+        }
+
+
+
+
+
+        }
+    </style>
+
+</body>
+
+<script src="math.js"></script>
+
+</html>
